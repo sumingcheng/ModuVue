@@ -2,6 +2,7 @@ const { merge } = require('webpack-merge')
 const common = require('./webpack.common.js')
 const TerserPlugin = require('terser-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path')
 
 module.exports = merge(common, {
@@ -39,6 +40,10 @@ module.exports = merge(common, {
       analyzerMode: 'static',
       reportFilename: path.join(__dirname, '../Analyzer', 'report.html'),
       openAnalyzer: false,
+    }),
+    // 每次构建前删除 dist 目录
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, '../dist')],
     }),
   ],
 })
