@@ -19,7 +19,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': path.resolve(__dirname, 'src'),
+      '@views': path.resolve(__dirname, 'views'),
     }
   },
   // 输出构建信息
