@@ -1,0 +1,46 @@
+{
+  "name": "ModuVue",
+  "version": "1.0.0",
+  "description": "ModuVue",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack serve",
+    "prod": "webpack --config webpack.prod.js",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sumingcheng/ModuVue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sumingcheng/ModuVue/issues"
+  },
+  "homepage": "https://github.com/sumingcheng/ModuVue#readme",
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "autoprefixer": "^10.4.14",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.7.3",
+    "html-webpack-plugin": "^5.5.1",
+    "less": "^4.1.3",
+    "less-loader": "^11.1.0",
+    "postcss-loader": "^7.2.4",
+    "style-loader": "^3.3.2",
+    "vue": "^3.2.47",
+    "vue-loader": "^17.0.1",
+    "vue-style-loader": "^4.1.3",
+    "vue-template-compiler": "^2.7.14",
+    "webpack": "^5.79.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.13.3"
+  },
+  "dependencies": {
+    "ant-design-vue": "^3.2.17",
+    "webpack-merge": "^5.8.0"
+  }
+}
