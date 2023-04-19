@@ -4,8 +4,8 @@
   "description": "ModuVue",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --port 8848",
-    "prod": "webpack serve --config webpack.prod.js",
+    "dev": "webpack serve --config config/webpack.dev.js",
+    "prod": "webpack serve --config config/webpack.prod.js",
     "build": "webpack-dashboard -- webpack --mode production",
     "lint": "eslint --ext .js,.vue src",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -8,7 +8,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 module.exports = {
   mode: 'development',
-  entry: './src/main.js',
+  entry: path.resolve(__dirname, '../src/main.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name]_[fullhash:6].js'
@@ -17,7 +17,7 @@ module.exports = {
     static: 'dist',
     hot: true,
     compress: true,
-    port: 8080,
+    port: 8848,
   },
   cache: {
     type: 'memory',
@@ -100,16 +100,17 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      template: 'public/index.html'
+      template: path.resolve(__dirname, '../public/index.html'),
     }),
     new webpack.DefinePlugin({
-      __VUE_OPTIONS_API__: true,
-      __VUE_PROD_DEVTOOLS__: true
+      __VUE_OPTIONS_API__: 'true',
+      __VUE_PROD_DEVTOOLS__: 'false',
     }),
     //   打包分析
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
-      reportFilename: path.join(__dirname, 'Analyzer', 'report.html')
+      reportFilename: path.join(__dirname, 'Analyzer', 'report.html'),
+      openAnalyzer: false,
     }),
     //   进度条
     new webpack.ProgressPlugin(),
