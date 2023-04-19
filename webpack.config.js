@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const DashboardPlugin = require('webpack-dashboard/plugin')
 const webpack = require('webpack')
 const path = require('path')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
   mode: 'development',
@@ -96,8 +97,11 @@ module.exports = {
       __VUE_OPTIONS_API__: true,
       __VUE_PROD_DEVTOOLS__: true
     }),
+    //   打包分析
+    new BundleAnalyzerPlugin(),
     //   进度条
     new webpack.ProgressPlugin(),
+    //   build 仪表板插件
     new DashboardPlugin({
       // 可选参数
       theme: 'dark',
