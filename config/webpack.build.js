@@ -6,6 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path')
 
 module.exports = merge(common, {
+  devtool: 'source-map',
   mode: 'production',
   optimization: {
     minimize: true,
@@ -13,7 +14,7 @@ module.exports = merge(common, {
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name]_[fullhash:6].js'
+    filename: '[name]_[fullhash:8].js'
   },
   module: {
     rules: [
