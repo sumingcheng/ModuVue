@@ -1,52 +1,42 @@
-const { merge } = require('webpack-merge')
-const common = require('./webpack.common.js')
-const TerserPlugin = require('terser-webpack-plugin')
-const path = require('path')
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
+const webpack = require('webpack');
 
 module.exports = merge(common, {
-  mode: 'production',
-  optimization: {
-    minimize: true,
-    minimizer: [
-      new TerserPlugin(),
-    ],
+  mode: 'development',
+  devServer: {
+    static: 'dist',
+    hot: true,
+    compress: true,
+    port: 8080,
+  },
+  cache: {
+    type: 'memory',
+  },
+  // 输出构建信息
+  stats: {
+    all: false,
+    warnings: true,
+    errors: true,
+    errorDetails: true,
+    colors: true,
+    performance: true,
+    timings: true,
   },
   module: {
     rules: [
       // 处理图片文件
       {
         test: /\.(png|jpg|gif)$/i,
-        type: 'asset',
-        parser: {
-          dataUrlCondition: {
-            maxSize: 8 * 1024 // 8kb
-          }
-        },
+        type: 'asset/resource',
         generator: {
-          filename: 'images/[name]_[hash:6][ext][query]'
-        }
+          filename: 'images/[name][ext][query]',
+        },
       },
     ],
   },
   plugins: [
-    //   build 仪表板插件
-    new DashboardPlugin({
-      // 可选参数
-      theme: 'dark',
-      dashboard: {
-        customStats: [
-          {
-            label: 'Time',
-            value: 'time',
-          },
-        ],
-      },
-    }),
-    //
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
-      reportFilename: path.join(__dirname, '../Analyzer', 'report.html'),
-      openAnalyzer: false,
-    }),
+    //   进度条
+    new webpack.ProgressPlugin(),
   ],
-})
+});

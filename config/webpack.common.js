@@ -2,14 +2,9 @@ const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const path = require('path')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
   entry: path.resolve(__dirname, '../src/main.js'),
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name]_[fullhash:6].js',
-  },
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {
