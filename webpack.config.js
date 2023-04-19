@@ -1,6 +1,7 @@
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const DashboardPlugin = require('webpack-dashboard/plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const webpack = require('webpack')
 const path = require('path')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
@@ -10,7 +11,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle-[fullhash:6].js'
+    filename: '[name]_[fullhash:6].js'
   },
   devServer: {
     static: 'dist',
@@ -26,6 +27,7 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, 'src'),
       '@views': path.resolve(__dirname, 'views'),
+      '@com': path.resolve(__dirname, 'com'),
     }
   },
   // 输出构建信息
@@ -37,6 +39,13 @@ module.exports = {
     colors: true,
     performance: true,
     timings: true
+  },
+  // 代码压缩
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin(),
+    ],
   },
   module: {
     rules: [
