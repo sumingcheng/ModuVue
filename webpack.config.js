@@ -98,7 +98,10 @@ module.exports = {
       __VUE_PROD_DEVTOOLS__: true
     }),
     //   打包分析
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      reportFilename: path.join(__dirname, 'Analyzer', 'report.html')
+    }),
     //   进度条
     new webpack.ProgressPlugin(),
     //   build 仪表板插件

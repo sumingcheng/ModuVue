@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack serve --port 8848",
     "prod": "webpack serve --config webpack.prod.js",
-    "build": "webpack-dashboard -- webpack --mode production  --profile --json > stats.json",
+    "build": "webpack-dashboard -- webpack --mode production",
     "lint": "eslint --ext .js,.vue src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
