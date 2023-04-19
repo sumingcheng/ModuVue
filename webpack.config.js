@@ -22,6 +22,16 @@ module.exports = {
       '@': path.resolve(__dirname, 'src')
     }
   },
+  // 输出构建信息
+  stats: {
+    all: false,
+    warnings: true,
+    errors: true,
+    errorDetails: true,
+    colors: true,
+    performance: true,
+    timings: true
+  },
   module: {
     rules: [
       {
