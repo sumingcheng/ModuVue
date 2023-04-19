@@ -9,11 +9,11 @@ module.exports = merge(common, {
   mode: 'production',
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin()],
+    minimizer: [new TerserPlugin()]
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name]_[fullhash:6].js',
+    filename: '[name]_[fullhash:6].js'
   },
   module: {
     rules: [
@@ -23,14 +23,14 @@ module.exports = merge(common, {
         type: 'asset',
         parser: {
           dataUrlCondition: {
-            maxSize: 8 * 1024, // 8kb
-          },
+            maxSize: 8 * 1024 // 8kb
+          }
         },
         generator: {
-          filename: 'images/[name]_[hash:6][ext][query]',
-        },
-      },
-    ],
+          filename: 'images/[name]_[hash:6][ext][query]'
+        }
+      }
+    ]
   },
   plugins: [
     //  Analyzer
@@ -38,9 +38,10 @@ module.exports = merge(common, {
       analyzerMode: 'static',
       reportFilename: path.join(__dirname, '../Analyzer', 'report.html'),
       openAnalyzer: false,
+      generateStatsFile: true
     }), // 每次构建前删除 dist 目录
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, '../dist')],
-    }),
-  ],
+      cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, '../dist')]
+    })
+  ]
 })

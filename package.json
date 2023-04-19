@@ -15,7 +15,7 @@
     "url": "git+https://github.com/sumingcheng/ModuVue.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "sumingcheng",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sumingcheng/ModuVue/issues"
@@ -35,6 +35,7 @@
     "postcss-loader": "^7.2.4",
     "prettier": "^2.8.7",
     "prettier-webpack-plugin": "^1.2.0",
+    "speed-measure-webpack-plugin": "^1.5.0",
     "style-loader": "^3.3.2",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^4.1.1",
