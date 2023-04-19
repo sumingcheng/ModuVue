@@ -8,7 +8,7 @@ const message = ref('Hello, World!!!')
   <div>{{ message }}</div>
 </template>
 
-<style>
+<style scoped lang="less">
 div {
   font-size: 25px;
   color: #333;
