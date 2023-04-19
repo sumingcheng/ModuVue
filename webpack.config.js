@@ -1,5 +1,6 @@
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const DashboardPlugin = require('webpack-dashboard/plugin')
 const webpack = require('webpack')
 const path = require('path')
 
@@ -8,13 +9,16 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle-[fullhash:6].js'
   },
   devServer: {
     static: 'dist',
     hot: true,
     compress: true,
     port: 8080,
+  },
+  cache: {
+    type: 'memory',
   },
   resolve: {
     extensions: ['.js', '.vue'],
@@ -92,6 +96,19 @@ module.exports = {
       __VUE_OPTIONS_API__: true,
       __VUE_PROD_DEVTOOLS__: true
     }),
-    new webpack.ProgressPlugin()
+    //   进度条
+    new webpack.ProgressPlugin(),
+    new DashboardPlugin({
+      // 可选参数
+      theme: 'dark',
+      dashboard: {
+        customStats: [
+          {
+            label: 'Time',
+            value: 'time',
+          },
+        ],
+      },
+    })
   ],
 }
