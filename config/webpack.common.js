@@ -1,5 +1,6 @@
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const PrettierWebpackPlugin = require('prettier-webpack-plugin')
 const webpack = require('webpack')
 const path = require('path')
 
@@ -61,5 +62,6 @@ module.exports = {
       __VUE_OPTIONS_API__: 'true',
       __VUE_PROD_DEVTOOLS__: 'false',
     }),
+    new PrettierWebpackPlugin(),
   ],
 }
