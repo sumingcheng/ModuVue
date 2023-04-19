@@ -1,6 +1,6 @@
 {
   "printWidth": 250,
-  "semi": true,
+  "semi": false,
   "singleQuote": true,
   "bracketSpacing": true,
   "spaceBeforeFunctionParen": true,
