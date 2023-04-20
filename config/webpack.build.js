@@ -6,11 +6,49 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path')
 
 module.exports = merge(common, {
-  devtool: 'source-map',
+  // devtool: 'source-map',
   mode: 'production',
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin()]
+    // 代码压缩混淆
+    minimizer: [new TerserPlugin()],
+    // 代码分割
+    splitChunks: {
+      name: 'vendors',
+      chunks: 'all',
+      minSize: 30000,
+      maxSize: Infinity,
+      minChunks: 3,
+      maxAsyncRequests: 30,
+      maxInitialRequests: 30,
+      enforceSizeThreshold: 100000,
+      automaticNameDelimiter: '_',
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          filename: '[name].bundle.js',
+          name: 'vendors'
+        },
+        vue: {
+          test: /[\\/]node_modules[\\/]@vue[\\/]/,
+          priority: -5,
+          filename: '[name].bundle.js',
+          name: 'vue'
+        },
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -20,
+          filename: '[name].bundle.js'
+        },
+        default: {
+          priority: -30,
+          reuseExistingChunk: true,
+          filename: '[name].bundle.js',
+          name: 'chunk-common'
+        }
+      }
+    }
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -40,9 +78,10 @@ module.exports = merge(common, {
       reportFilename: path.join(__dirname, '../Analyzer', 'report.html'),
       openAnalyzer: false,
       generateStatsFile: true
-    }), // 每次构建前删除 dist 目录
+    }),
+    // 每次构建前删除 dist 目录
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, '../dist')]
+      cleanOnceBeforeBuildPatterns: path.resolve(__dirname, '../dist')
     })
   ]
 })
