@@ -73,7 +73,7 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
-    //  Analyzer
+    //  analyzer
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       openAnalyzer: false,

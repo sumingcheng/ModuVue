@@ -8,7 +8,7 @@
     "prod": "webpack serve --config config/webpack.prod.js",
     "build": "sh bin/build.sh",
     "lint": "eslint --ext .js,.vue src",
-    "analyzer": "webpack-bundle-analyzer Analyzer/stats.json"
+    "analyzer": "webpack-bundle-analyzer analyzer/stats.json"
   },
   "repository": {
     "type": "git",
