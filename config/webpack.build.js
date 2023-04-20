@@ -76,7 +76,6 @@ module.exports = merge(common, {
     //  Analyzer
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
-      reportFilename: path.join(__dirname, '../Analyzer', 'report.html'),
       openAnalyzer: false,
       generateStatsFile: true
     }),
