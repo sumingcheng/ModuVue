@@ -10,14 +10,10 @@ const http = axios.create({
   timeout: 10000
 })
 
-// request拦截器
-http.interceptors.request.use(
-
-)
+// 请求拦截器
+http.interceptors.request.use()
 
 // 响应拦截器
-http.interceptors.response.use(
-
-)
+http.interceptors.response.use()
 
 export default http

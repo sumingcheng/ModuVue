@@ -73,5 +73,6 @@ export default {
   session: sessionCache,
   /**
    * 本地缓存
-   */ local: localCache
+   */
+  local: localCache
 }
