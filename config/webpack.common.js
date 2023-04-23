@@ -1,6 +1,7 @@
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+const config = require('./config')
 const path = require('path')
 
 module.exports = {
@@ -54,6 +55,7 @@ module.exports = {
       template: path.resolve(__dirname, '../public/index.html')
     }),
     new webpack.DefinePlugin({
+      __CONFIG__: JSON.stringify(config),
       __VUE_OPTIONS_API__: 'true',
       __VUE_PROD_DEVTOOLS__: 'false'
     })

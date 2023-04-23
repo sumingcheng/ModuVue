@@ -28,6 +28,7 @@
     "babel-loader": "^9.1.2",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.3",
+    "echarts": "^5.4.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.1",
     "less": "^4.1.3",
