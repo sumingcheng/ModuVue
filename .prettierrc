@@ -3,10 +3,11 @@
   "semi": false,
   "singleQuote": true,
   "bracketSpacing": true,
-  "spaceBeforeFunctionParen": true,
   "tabWidth": 2,
   "jsxBracketSameLine": false,
   "arrowParens": "always",
   "trailingComma": "none",
-  "useTabs": false
+  "useTabs": false,
+  "spaceBetweenParens": true,
+  "spaceBeforeFunctionParen": true
 }
