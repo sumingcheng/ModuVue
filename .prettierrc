@@ -9,5 +9,6 @@
   "trailingComma": "none",
   "useTabs": false,
   "spaceBetweenParens": true,
-  "spaceBeforeFunctionParen": true
+  "spaceBeforeFunctionParen": true,
+  "chain-operators": "multiline"
 }
