@@ -6,4 +6,5 @@ webpack --config config/webpack.build.js
 mv dist/stats.json Analyzer/
 mv dist/report.html Analyzer/
 
-
+# zip
+npm run zip

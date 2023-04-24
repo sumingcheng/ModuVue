@@ -13,3 +13,4 @@ ${NC}
 "
 
 echo -e "${GREEN}Building the Project...${NC}"
+
