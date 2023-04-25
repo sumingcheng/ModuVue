@@ -1,11 +1,14 @@
 <script setup>
 import { ref } from 'vue'
+import { useStore } from 'vuex'
+
+const store = useStore()
 
 const message = ref('login')
 </script>
 
 <template>
-  <div>{{ message }}</div>
+  <div>{{ message + store.state.root }}</div>
 </template>
 
 <style scoped lang="less">
