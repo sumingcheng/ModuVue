@@ -1,4 +1,4 @@
 # icon
-bin/dev_icon.sh
+bin/serve_icon.sh
 # 运行
 webpack serve --config config/webpack.dev.js

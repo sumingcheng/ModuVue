@@ -1,6 +1,6 @@
-const { merge } = require('webpack-merge');
-const common = require('./webpack.common.js');
-const webpack = require('webpack');
+const { merge } = require('webpack-merge')
+const common = require('./webpack.common.js')
+const webpack = require('webpack')
 
 module.exports = merge(common, {
   mode: 'development',
@@ -8,10 +8,10 @@ module.exports = merge(common, {
     static: 'dist',
     hot: true,
     compress: true,
-    port: 8848,
+    port: 8848
   },
   cache: {
-    type: 'memory',
+    type: 'memory'
   },
   // 输出构建信息
   stats: {
@@ -21,7 +21,7 @@ module.exports = merge(common, {
     errorDetails: true,
     colors: true,
     performance: true,
-    timings: true,
+    timings: true
   },
   module: {
     rules: [
@@ -30,13 +30,13 @@ module.exports = merge(common, {
         test: /\.(png|jpg|gif)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'images/[name][ext][query]',
-        },
-      },
-    ],
+          filename: 'images/[name][ext][query]'
+        }
+      }
+    ]
   },
   plugins: [
     //   进度条
-    new webpack.ProgressPlugin(),
-  ],
-});
+    new webpack.ProgressPlugin()
+  ]
+})
