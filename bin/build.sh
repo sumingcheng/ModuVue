@@ -8,5 +8,3 @@ mv dist/resource/report.html Analyzer/
 
 # zip
 npm run zip
-
-# 移动
