@@ -8,6 +8,23 @@ const path = require('path')
 module.exports = merge(common, {
   // devtool: 'source-map',
   mode: 'production',
+  output: {
+    // publicPath: '/',
+    path: path.resolve(__dirname, '../dist'),
+    filename: '[name]_[fullhash:8].js'
+  },
+  plugins: [
+    //  analyzer
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+      generateStatsFile: true
+    }),
+    // 每次构建前删除 dist 目录
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: path.resolve(__dirname, '../dist')
+    })
+  ],
   optimization: {
     minimize: true,
     // 代码压缩混淆
@@ -51,10 +68,6 @@ module.exports = merge(common, {
       }
     }
   },
-  output: {
-    path: path.resolve(__dirname, '../dist'),
-    filename: '[name]_[fullhash:8].js'
-  },
   module: {
     rules: [
       // 处理图片文件
@@ -71,17 +84,5 @@ module.exports = merge(common, {
         }
       }
     ]
-  },
-  plugins: [
-    //  analyzer
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
-      openAnalyzer: false,
-      generateStatsFile: true
-    }),
-    // 每次构建前删除 dist 目录
-    new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: path.resolve(__dirname, '../dist')
-    })
-  ]
+  }
 })

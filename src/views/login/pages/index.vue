@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const message = ref('test')
+const message = ref('login')
 </script>
 
 <template>

@@ -8,7 +8,8 @@ module.exports = merge(common, {
     static: 'dist',
     hot: true,
     compress: true,
-    port: 8848
+    port: 8848,
+    historyApiFallback: true
   },
   cache: {
     type: 'memory'

@@ -1,13 +1,17 @@
-<template>
-  <div>
-
-  </div>
-</template>
-
 <script setup>
+import { ref } from 'vue'
 
+const message = ref('home')
 </script>
 
-<style lang='less' scoped>
+<template>
+  <div>{{ message }}</div>
+</template>
 
+<style scoped lang="less">
+div {
+  font-size: 25px;
+  color: #333;
+  text-align: center;
+}
 </style>
