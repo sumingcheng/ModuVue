@@ -10,7 +10,7 @@ module.exports = merge(common, {
   mode: 'production',
   output: {
     // publicPath: '/',
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../dist/resource'),
     filename: '[name]_[fullhash:8].js'
   },
   plugins: [
@@ -28,7 +28,16 @@ module.exports = merge(common, {
   optimization: {
     minimize: true,
     // 代码压缩混淆
-    minimizer: [new TerserPlugin()],
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          format: {
+            comments: false // 注释设置为false，即取消生成该注释
+          }
+        },
+        extractComments: false
+      })
+    ],
     // 代码分割
     splitChunks: {
       name: 'vendors',

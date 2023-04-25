@@ -3,8 +3,10 @@ bin/build_icon.sh
 webpack --config config/webpack.build.js
 
 # 移动
-mv dist/stats.json Analyzer/
-mv dist/report.html Analyzer/
+mv dist/resource/stats.json Analyzer/
+mv dist/resource/report.html Analyzer/
 
 # zip
 npm run zip
+
+# 移动
