@@ -1,5 +1,5 @@
 const { merge } = require('webpack-merge')
-const common = require('./webpack.common.js')
+const common = require('../webpack.common.js')
 const TerserPlugin = require('terser-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
@@ -8,10 +8,36 @@ const path = require('path')
 module.exports = merge(common, {
   // devtool: 'source-map',
   mode: 'production',
+  output: {
+    // publicPath: '/',
+    path: path.resolve(__dirname, '../dist/resource'),
+    filename: '[name]_[fullhash:8].js'
+  },
+  plugins: [
+    //  analyzer
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+      generateStatsFile: true
+    }),
+    // 每次构建前删除 dist 目录
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: path.resolve(__dirname, '../dist')
+    })
+  ],
   optimization: {
     minimize: true,
     // 代码压缩混淆
-    minimizer: [new TerserPlugin()],
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          format: {
+            comments: false // 注释设置为false，即取消生成该注释
+          }
+        },
+        extractComments: false
+      })
+    ],
     // 代码分割
     splitChunks: {
       name: 'vendors',
@@ -51,10 +77,6 @@ module.exports = merge(common, {
       }
     }
   },
-  output: {
-    path: path.resolve(__dirname, '../dist'),
-    filename: '[name]_[fullhash:8].js'
-  },
   module: {
     rules: [
       // 处理图片文件
@@ -71,17 +93,5 @@ module.exports = merge(common, {
         }
       }
     ]
-  },
-  plugins: [
-    //  analyzer
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
-      openAnalyzer: false,
-      generateStatsFile: true
-    }),
-    // 每次构建前删除 dist 目录
-    new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: path.resolve(__dirname, '../dist')
-    })
-  ]
+  }
 })
