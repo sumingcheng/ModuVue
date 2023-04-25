@@ -1,19 +1,9 @@
-// import loginRoutes from './login'
-// import errorRoutes from './error'
+import login from '@views/login/service-config/routes'
+import home from '@views/home/service-config/routes'
 
 const routes = [
-  // ...loginRoutes,
-  // ...errorRoutes,
-  {
-    name: 'login',
-    path: '/',
-    component: () => import('@views/login/pages/index.vue')
-  },
-  {
-    name: 'home',
-    path: '/home',
-    component: () => import('@views/home/pages')
-  },
+  ...login,
+  ...home,
   {
     path: '/:catchAll(.*)',
     name: '404',
