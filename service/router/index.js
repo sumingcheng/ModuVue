@@ -6,8 +6,8 @@ const Router = createRouter({
   routes
 })
 
+// 路由守卫
 Router.beforeEach((to, from, next) => {
-  console.log('to', to)
   if (to.matched.length === 0) {
     next('/404')
   } else {

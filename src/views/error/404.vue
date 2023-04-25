@@ -25,7 +25,7 @@ export default {
     font-weight: 600;
     line-height: 1;
     margin-bottom: 2rem;
-    color: #f44336;
+    color: #343541;
     text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.4);
   }
 
@@ -42,15 +42,14 @@ export default {
     font-size: 1.5rem;
     font-weight: 500;
     color: #fff;
-    background-color: #f44336;
+    background-color: #343541;
     padding: 1rem 2rem;
     border-radius: 0.5rem;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
 
     &:hover {
-      transform: translateY(-3px);
-      box-shadow: 3px 3px 0 #444;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
   }
 }
