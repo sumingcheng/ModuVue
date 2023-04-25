@@ -5,13 +5,12 @@ const routes = [
   // ...loginRoutes,
   // ...errorRoutes,
   {
+    name: 'login',
     path: '/',
-    redirect: {
-      name: 'console'
-    }
+    component: () => import('@views/login/pages')
   },
   {
-    path: '*',
+    path: '/:pathMatch(.*)*',
     redirect: {
       name: 'login'
     }

@@ -1,17 +1,9 @@
-<script setup>
-import { ref } from 'vue'
-
-const message = ref('Hello, World!!!')
-</script>
-
 <template>
-  <div>{{ message }}</div>
+  <router-view v-slot="{ Component }">
+    <transition>
+      <component :is="Component" />
+    </transition>
+  </router-view>
 </template>
 
-<style scoped lang="less">
-div {
-  font-size: 25px;
-  color: #333;
-  text-align: center;
-}
-</style>
+<script setup></script>

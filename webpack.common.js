@@ -1,18 +1,18 @@
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
-const config = require('./config')
+const config = require('./config/config')
 const path = require('path')
 
 module.exports = {
-  entry: path.resolve(__dirname, '../src/main.js'),
+  entry: path.resolve(__dirname, './src/main.js'),
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {
-      '@': path.resolve(__dirname, '../src'),
-      '@views': path.resolve(__dirname, '../views'),
-      '@com': path.resolve(__dirname, '../com'),
-      '@service': path.resolve(__dirname, '../service')
+      '@': path.resolve(__dirname, './src'),
+      '@views': path.resolve(__dirname, './src/views'),
+      '@com': path.resolve(__dirname, './com'),
+      '@service': path.resolve(__dirname, './service')
     }
   },
   module: {
@@ -53,7 +53,7 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../public/index.html')
+      template: path.resolve(__dirname, './public/index.html')
     }),
     new webpack.DefinePlugin({
       __CONFIG__: JSON.stringify(config),
