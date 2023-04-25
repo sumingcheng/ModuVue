@@ -4,7 +4,7 @@
   "description": "ModuVue",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --config config/webpack.dev.js",
+    "dev": "sh bin/dev.sh",
     "prod": "webpack serve --config config/webpack.prod.js",
     "build": "sh bin/build.sh",
     "lint": "eslint --ext .js,.vue src",

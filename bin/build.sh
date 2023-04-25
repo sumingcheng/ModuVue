@@ -1,4 +1,4 @@
-bin/_icon.sh
+bin/build_icon.sh
 # 项目打包
 webpack --config config/webpack.build.js
 
