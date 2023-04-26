@@ -1,8 +1,18 @@
-<template>
-  <div>detail</div>
-</template>
+<script setup>
+import { ref } from 'vue'
 
-<script setup></script>
+const count = ref(0)
+const increment = () => {
+  count.value++
+}
+</script>
+
+<template>
+  <div>
+    {{ count }}
+    <button @click="increment">+</button>
+  </div>
+</template>
 
 <style scoped lang="less">
 div {
