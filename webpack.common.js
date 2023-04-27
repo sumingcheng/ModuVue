@@ -33,20 +33,18 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
-      },
-      // 处理图片文件
+      }, // 如果文件大小小于 limit 参数，就将资源转换成 base64 编码的 DataURL
       {
         test: /\.(png|jpg|gif|jpeg|bmp|svg|ico)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'images/',
-              publicPath: 'images/'
-            }
+        type: 'asset',
+        generator: {
+          filename: 'images/[name][ext][query]'
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 4096
           }
-        ]
+        }
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
