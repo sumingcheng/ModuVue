@@ -59,7 +59,8 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './public/index.html')
+      template: path.resolve(__dirname, './public/index.html'),
+      filename: '../index.html',
     }),
     new webpack.DefinePlugin({
       __CONFIG__: JSON.stringify(config),
