@@ -35,10 +35,16 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
-        type: 'asset/resource',
+        test: /\.(png|jpg|gif|jpeg|bmp|svg|ico)$/i,
+        type: 'asset',
         generator: {
           filename: 'images/[name][ext][query]'
+        },
+        parser: {
+          dataUrlCondition: {
+            // 如果文件大小小于 limit 参数，就将资源转换成 base64 编码的 DataURL
+            maxSize: 5120
+          }
         }
       },
       {
@@ -53,7 +59,7 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './public/index.html')
+      template: path.resolve(__dirname, './public/index.html'),
     }),
     new webpack.DefinePlugin({
       __CONFIG__: JSON.stringify(config),

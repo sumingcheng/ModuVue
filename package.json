@@ -1,6 +1,6 @@
 {
   "name": "moduvue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ModuVue",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,6 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.3",
     "echarts": "^5.4.2",
-    "file-loader": "^6.2.0",
     "gulp": "^4.0.2",
     "html-webpack-plugin": "^5.5.1",
     "less": "^4.1.3",
@@ -40,7 +39,6 @@
     "speed-measure-webpack-plugin": "^1.5.0",
     "style-loader": "^3.3.2",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "url-loader": "^4.1.1",
     "vue-loader": "^17.0.1",
     "vue-style-loader": "^4.1.3",
     "vue-template-compiler": "^2.7.14",

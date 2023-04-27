@@ -1,24 +1,8 @@
-// import loginRoutes from './login'
-// import errorRoutes from './error'
+import login from '@views/login/service-config/routes'
+import home from '@views/home/service-config/routes'
+import error from '@views/error/service-config/routes'
+import detail from '@views/detail/service-config/routes'
 
-const routes = [
-  // ...loginRoutes,
-  // ...errorRoutes,
-  {
-    name: 'login',
-    path: '/',
-    component: () => import('@views/login/pages/index.vue')
-  },
-  {
-    name: 'home',
-    path: '/home',
-    component: () => import('@views/home/pages')
-  },
-  {
-    path: '/:catchAll(.*)',
-    name: '404',
-    component: () => import('@views/error/404.vue')
-  }
-]
+const routes = [...login, ...home, ...error, ...detail]
 
 export default routes
