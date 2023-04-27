@@ -10,17 +10,15 @@ module.exports = merge(common, {
   mode: 'production',
   output: {
     // publicPath: '/',
-    path: path.resolve(__dirname, '../dist/resource'),
+    path: path.resolve(__dirname, '../dist/resource/js'),
     filename: '[name]_[fullhash:8].js'
   },
   plugins: [
-    //  analyzer
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       openAnalyzer: false,
       generateStatsFile: true
     }),
-    // 每次构建前删除 dist 目录
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: path.resolve(__dirname, '../dist')
     })
@@ -76,22 +74,5 @@ module.exports = merge(common, {
         }
       }
     }
-  },
-  module: {
-    rules: [
-      // 处理图片文件
-      {
-        test: /\.(png|jpg|gif)$/i,
-        type: 'asset',
-        parser: {
-          dataUrlCondition: {
-            maxSize: 8 * 1024 // 8kb
-          }
-        },
-        generator: {
-          filename: 'images/[name]_[hash:6][ext][query]'
-        }
-      }
-    ]
   }
 })
