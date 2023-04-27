@@ -36,17 +36,17 @@ module.exports = {
       },
       // 处理图片文件
       {
-        test: /\.(png|jpg|gif|svg)$/i,
+        test: /\.(png|jpg|gif|jpeg|bmp|svg|ico)$/i,
         use: [
           {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
               outputPath: 'images/',
-              publicPath: 'images/',
-            },
-          },
-        ],
+              publicPath: 'images/'
+            }
+          }
+        ]
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,

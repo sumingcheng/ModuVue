@@ -9,8 +9,10 @@ const message = ref('login')
 </script>
 
 <template>
-  <div>{{ message + store.state.root }}</div>
-  <div><img :src="svg" alt="logo" /></div>
+  <div>
+    <div>{{ message + store.state.root }}</div>
+    <div><img :src="svg" alt="logo" /></div>
+  </div>
 </template>
 
 <style scoped lang="less">
@@ -19,7 +21,8 @@ div {
   color: #333;
   text-align: center;
 }
-img{
+
+img {
   width: 100px;
   height: 100px;
 }
