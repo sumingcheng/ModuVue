@@ -33,7 +33,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
-      }, // 如果文件大小小于 limit 参数，就将资源转换成 base64 编码的 DataURL
+      },
       {
         test: /\.(png|jpg|gif|jpeg|bmp|svg|ico)$/i,
         type: 'asset',
@@ -42,6 +42,7 @@ module.exports = {
         },
         parser: {
           dataUrlCondition: {
+            // 如果文件大小小于 limit 参数，就将资源转换成 base64 编码的 DataURL
             maxSize: 5120
           }
         }

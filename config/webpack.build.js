@@ -38,31 +38,25 @@ module.exports = merge(common, {
     ],
     // 代码分割
     splitChunks: {
-      name: 'vendors',
-      chunks: 'all',
-      // 50 kb
-      minSize: 50000,
-      maxSize: Infinity,
-      minChunks: 3,
-      maxAsyncRequests: 30,
-      maxInitialRequests: 30,
-      enforceSizeThreshold: 100000,
-      automaticNameDelimiter: '_',
+      name: 'vendors', // chunk名称,
+      chunks: 'async', // 拆分标准，选择需要优化的 chunks,all,async和initial分别表示全部、按需加载和初始入口。
+      minSize: 30000, // 拆分前的chunk大小需大于30KB
+      maxSize: Infinity, // 拆分后的chunk大小不做限制
+      minChunks: 3, // 被多少模块共享，将会被打包到新的chunk中
+      maxAsyncRequests: 30, // 按需加载时的最大并发请求数
+      maxInitialRequests: 30, // 入口点的最大并行请求数
+      enforceSizeThreshold: 100000, // 强制给拆分后的chunk设置最小size
+      automaticNameDelimiter: '_', // 命名分隔符
       cacheGroups: {
         vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10,
-          filename: '[name].bundle.js',
+          // cache group名称, 同时匹配符合test和priority的rule，只会使用其中一个
+          test: /[\/]node_modules[\/]/, // 匹配需要拆分的模块路径，只有满足匹配规则的模块才被打包到当前的chunk中
+          priority: -10, // 优先级，决定打包到哪个chunk中，值越大优先级越高
+          filename: '[name].bundle.js', // 满足cache group的module会被打包到该文件中
           name: 'vendors'
         },
-        vue: {
-          test: /[\\/]node_modules[\\/]@vue[\\/]/,
-          priority: -5,
-          filename: '[name].bundle.js',
-          name: 'vue'
-        },
         defaultVendors: {
-          test: /[\\/]node_modules[\\/]/,
+          test: /[\/]node_modules[\/]/,
           priority: -20,
           filename: '[name].bundle.js'
         },
