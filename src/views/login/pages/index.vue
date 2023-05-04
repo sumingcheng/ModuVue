@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
-// import svg from '@/../public/webpack.svg'
 
 const store = useStore()
 
@@ -10,7 +9,7 @@ const message = ref('login')
 
 <template>
   <div>
-    <div>{{ message + store.state.root }}</div>
+    <el-button type="primary">获取 Data</el-button>
   </div>
 </template>
 
@@ -19,10 +18,5 @@ div {
   font-size: 25px;
   color: #333;
   text-align: center;
-}
-
-img {
-  width: 100px;
-  height: 100px;
 }
 </style>
