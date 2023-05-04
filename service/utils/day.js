@@ -1,13 +1,10 @@
 import dayjs from 'dayjs'
-
-/**
- * 将日期格式化为指定格式
- * @param {string} date  日期字符串，例如'2022-12-31'
- * @param {string} DATE_FORMAT 日期格式，例如'YYYY-MM-DD'
- * @returns {string} 格式化后的日期字符串，例如'2022/12/31'
- */
+/*
+* 示例
+* let currentTime = formatDate(new Date(), 'MM-DD') + '_' + formatDate(new Date(), 'HH-mm')
+* */
 export const formatDate = (date, DATE_FORMAT) => {
-  return dayjs(date).format(DATE_FORMAT).replace(/-/g, '/')
+  return dayjs(date).format(DATE_FORMAT)
 }
 
 /**
