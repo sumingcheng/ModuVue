@@ -3,6 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const config = require('./config/config')
 const path = require('path')
+// EL UI
+const AutoImport = require('unplugin-auto-import/webpack')
+const Components = require('unplugin-vue-components/webpack')
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 
 module.exports = {
   entry: path.resolve(__dirname, './src/main.js'),
@@ -59,12 +63,18 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './public/index.html'),
+      template: path.resolve(__dirname, './public/index.html')
     }),
     new webpack.DefinePlugin({
       __CONFIG__: JSON.stringify(config),
       __VUE_OPTIONS_API__: 'true',
       __VUE_PROD_DEVTOOLS__: 'false'
+    }),
+    AutoImport({
+      resolvers: [ElementPlusResolver()]
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()]
     })
   ]
 }

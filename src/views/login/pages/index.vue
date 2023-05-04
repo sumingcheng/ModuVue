@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
-import svg from '@/../public/webpack.svg'
+// import svg from '@/../public/webpack.svg'
 
 const store = useStore()
 
@@ -11,7 +11,6 @@ const message = ref('login')
 <template>
   <div>
     <div>{{ message + store.state.root }}</div>
-    <div><img :src="svg" alt="logo" /></div>
   </div>
 </template>
 
