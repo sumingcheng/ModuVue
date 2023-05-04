@@ -11,7 +11,7 @@ module.exports = merge(common, {
   output: {
     // publicPath: '/',
     path: path.resolve(__dirname, '../dist/resource'),
-    filename: '[name]_[fullhash:8].js',
+    filename: '[name]_[fullhash:8].js'
     // assetModuleFilename: 'css/[name][ext]'
   },
   plugins: [

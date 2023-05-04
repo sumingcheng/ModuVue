@@ -4,9 +4,9 @@
   "description": "ModuVue",
   "main": "index.js",
   "scripts": {
-    "dev": "sh bin/dev.sh",
-    "prod": "sh bin/prod.sh",
-    "build": "sh bin/build.sh",
+    "dev": "bash bin/dev.sh",
+    "prod": "bash bin/prod.sh",
+    "build": "bash bin/build.sh",
     "lint": "eslint --ext .js,.vue src",
     "analyzer": "webpack-bundle-analyzer analyzer/stats.json",
     "zip": "gulp zip"
