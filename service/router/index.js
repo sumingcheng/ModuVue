@@ -9,6 +9,7 @@ const Router = createRouter({
 // 路由守卫
 Router.beforeEach((to, from, next) => {
   if (to.matched.length === 0) {
+    // 用户请求的路由不存在时，自动跳转到404页面
     next('/404')
   } else {
     next()
