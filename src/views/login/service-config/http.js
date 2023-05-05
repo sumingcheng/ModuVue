@@ -1,7 +1,7 @@
-import http from '@serv/http/index'
+import AxiosInstances from '@serv/http/index'
 
 export function getData() {
-  return http({
+  return AxiosInstances({
     url: '/todos/1',
     method: 'get'
   })
