@@ -15,7 +15,12 @@ module.exports = merge(common, {
     //     target: process.env.VUE_APP_BASE_URL, // 直接指向你请求的服务器地址
     //     changeOrigin: true
     //   }
-    // }
+    // },
+    client: {
+      logging: 'warn', // 消息级别
+      overlay: true, // 全屏覆盖
+      progress: true, // 进度条
+    }
   },
   cache: {
     type: 'memory'

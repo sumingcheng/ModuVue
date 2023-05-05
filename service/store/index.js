@@ -12,6 +12,6 @@ const RootStore = createStore({
   actions
 })
 
-console.log('store', RootStore)
+// console.log('store', RootStore)
 
 export default RootStore

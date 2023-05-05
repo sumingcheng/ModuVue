@@ -4,7 +4,7 @@ axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
 // 创建axios实例
 const AxiosInstances = axios.create({
   headers: {
-    'Content-Type': 'application/json;charset=utf-8'
+    'Content-type': 'application/json; charset=UTF-8'
   },
   // axios中请求配置有baseURL选项，表示请求URL公共部分
   baseURL: process.env.VUE_APP_BASE_API,
@@ -14,7 +14,8 @@ const AxiosInstances = axios.create({
 })
 
 // 请求拦截器
-AxiosInstances.interceptors.request.use(
+AxiosInstances.interceptors.request
+  .use
   // (config) => {
   //   // 对请求进行一些通用的处理
   //   config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`
@@ -23,7 +24,7 @@ AxiosInstances.interceptors.request.use(
   // (error) => {
   //   return Promise.reject(error)
   // }
-)
+  ()
 
 // 响应拦截器
 AxiosInstances.interceptors.response.use(
