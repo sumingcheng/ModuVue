@@ -6,7 +6,6 @@ import '@/assets/css/reset.css'
 import { Router } from '@serv/router'
 import Store from '@serv/store'
 
-const isProd = process.env.NODE_ENV
 const app = createApp(App)
 
 // 注入路由

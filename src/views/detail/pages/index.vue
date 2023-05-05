@@ -1,16 +1,18 @@
 <script setup>
 import { ref } from 'vue'
+import { useStore } from 'vuex'
 
-const count = ref(0)
-const increment = () => {
-  count.value++
+const store = useStore()
+
+const update = () => {
+  store.state.detail.dispatch('updateSystemTimeAsync')
 }
 </script>
 
 <template>
   <div>
-    <div>{{ count }}</div>
-    <el-button type="primary" @click="increment">+</el-button>
+    <div>{{ store.state.detail.systemTime }}</div>
+    <el-button type="primary" @click="update">更新当前时间</el-button>
   </div>
 </template>
 

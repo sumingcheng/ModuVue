@@ -5,10 +5,22 @@ export function dynamicRouting() {
 
   const routes = []
 
-  context.keys().forEach((filename) => {
-    const module = context(filename)
+  context.keys().forEach((fileName) => {
+    const module = context(fileName)
     routes.push(...module.default)
   })
 
   return routes
+}
+
+//　VueX 模块自动导入
+export function dynamicStore(RootStore) {
+  const context = require.context('@/views', true, /\/store\.js$/)
+
+  context.keys().forEach((fileName) => {
+    const module = context(fileName)
+    const moduleName = fileName.match(/\.\/([a-zA-Z0-9_-]+)\//)[1]
+
+    RootStore.registerModule(moduleName, module.default || module)
+  })
 }

@@ -10,5 +10,14 @@
   "useTabs": false,
   "spaceBetweenParens": true,
   "spaceBeforeFunctionParen": true,
-  "chain-operators": "multiline"
+  "chain-operators": "multiline",
+  "rules": {
+    "blankLines": [
+      {
+        "blankLines": "always",
+        "prev": "function",
+        "next": "function"
+      }
+    ]
+  }
 }
