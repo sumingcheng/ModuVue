@@ -10,7 +10,7 @@ const increment = () => {
 <template>
   <div>
     {{ count }}
-    <button @click="increment">+</button>
+    <el-button type="primary" @click="increment">+</el-button>
   </div>
 </template>
 
