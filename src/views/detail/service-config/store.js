@@ -1,8 +1,10 @@
+import { formatDate } from '@serv/utils/day'
+
 export default {
   namespaced: true,
   state: {
     // 系统时间
-    systemTime: new Date().getTime()
+    systemTime: formatDate(new Date().getTime(), 'YYYY-MM-DD HH:mm:ss')
   },
   getters: {
     getTime(state) {
@@ -19,7 +21,7 @@ export default {
   },
   actions: {
     async updateSystemTimeAsync({ commit }) {
-      commit('setSystemTime', new Date(new Date().getTime())) // 使用同步的 mutation 更新 systemTime 状态
+      commit('setSystemTime', formatDate(new Date().getTime(), 'YYYY-MM-DD HH:mm:ss'))
     }
   }
 }

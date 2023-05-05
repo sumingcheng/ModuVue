@@ -5,7 +5,7 @@ import { useStore } from 'vuex'
 const store = useStore()
 
 const update = () => {
-  store.state.detail.dispatch('updateSystemTimeAsync')
+  store.dispatch('detail/updateSystemTimeAsync')
 }
 </script>
 
