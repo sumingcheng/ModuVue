@@ -2,25 +2,24 @@
 import { reactive, toRefs } from 'vue'
 import { getData, getTableData, postData } from '../service-config/http'
 
-let state = reactive({
+const state = reactive({
   tableData: []
 })
 
-async function Gdata() {
+const Gdata = async () => {
   let res = await getData()
   console.log(res)
 }
 
-let PData = async () => {
+const PData = async () => {
   let res = postData({
     title: 'foo',
     body: 'bar',
     userId: 1
   })
-  console.log(res)
 }
 
-let table = async () => {
+const table = async () => {
   state.tableData = await getTableData()
   console.log(state.tableData)
 }

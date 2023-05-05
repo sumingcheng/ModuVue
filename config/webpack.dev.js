@@ -18,12 +18,8 @@ module.exports = merge(common, {
     // },
     client: {
       logging: 'warn', // 消息级别
-      overlay: true, // 全屏覆盖
-      progress: true, // 进度条
+      overlay: true // 全屏覆盖
     }
-  },
-  cache: {
-    type: 'memory'
   },
   // 输出构建信息
   stats: {
@@ -34,21 +30,5 @@ module.exports = merge(common, {
     colors: true,
     performance: true,
     timings: true
-  },
-  module: {
-    rules: [
-      // 处理图片文件
-      {
-        test: /\.(png|jpg|gif)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'images/[name][ext][query]'
-        }
-      }
-    ]
-  },
-  plugins: [
-    //   进度条
-    new webpack.ProgressPlugin()
-  ]
+  }
 })

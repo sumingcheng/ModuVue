@@ -12,6 +12,9 @@ const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 
 module.exports = {
   entry: path.resolve(__dirname, './src/main.js'),
+  cache: {
+    type: 'memory'
+  },
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {
@@ -73,11 +76,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './public/index.html')
     }),
-    new webpack.DefinePlugin({
-      __CONFIG__: JSON.stringify(config),
-      __VUE_OPTIONS_API__: 'true',
-      __VUE_PROD_DEVTOOLS__: 'false'
-    }),
     new Dotenv({
       path: (() => {
         if (process.env.NODE_ENV === 'production') {
@@ -86,6 +84,12 @@ module.exports = {
           return path.resolve(__dirname, '.env.development')
         }
       })()
-    })
+    }),
+    new webpack.DefinePlugin({
+      __CONFIG__: JSON.stringify(config),
+      __VUE_OPTIONS_API__: 'true',
+      __VUE_PROD_DEVTOOLS__: 'false'
+    }),
+    new webpack.ProgressPlugin()
   ]
 }
