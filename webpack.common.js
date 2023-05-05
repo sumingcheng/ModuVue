@@ -1,7 +1,7 @@
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
-const config = require('./config/config')
+const globalVar = require('./config/globalVar')
 const path = require('path')
 const Dotenv = require('dotenv-webpack')
 
@@ -89,7 +89,7 @@ module.exports = {
       })()
     }),
     new webpack.DefinePlugin({
-      __CONFIG__: JSON.stringify(config),
+      __CONFIG__: JSON.stringify(globalVar),
       __VUE_OPTIONS_API__: 'true',
       __VUE_PROD_DEVTOOLS__: 'false'
     }),

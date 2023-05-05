@@ -1,5 +1,12 @@
-// 编译时创建全局变量，可以使用 __CONFIG__.name 获取
-module.exports = {
-  name: 'ModuVue'
-}
+const cacheGroupOptions = (moduleName, modulePath, priority) => ({
+  test: new RegExp(`[\\\\/]node_modules[\\\\/](${moduleName})[\\\\/]`),
+  reuseExistingChunk: true,
+  filename: '[name].[contenthash:8].js',
+  enforce: true,
+  priority,
+  chunks: 'all'
+})
 
+module.exports = {
+  cacheGroupOptions
+}
