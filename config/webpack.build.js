@@ -4,7 +4,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path')
-const { cacheGroupOptions } = require('./cacheGroups')
+const { cacheGroupOptions } = require('./config')
 
 module.exports = merge(common, {
   // devtool: 'source-map',

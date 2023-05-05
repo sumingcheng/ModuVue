@@ -1,4 +1,5 @@
-const store = new Vuex.Store({
+export default {
+  namespaced: true,
   state: {
     // 应用程序的状态
   },
@@ -11,9 +12,4 @@ const store = new Vuex.Store({
   getters: {
     // 计算 state 属性的方法
   }
-})
-
-export default {
-  namespaced: true,
-  store
 }
