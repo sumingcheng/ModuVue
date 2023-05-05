@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const config = require('./config/config')
 const path = require('path')
+const Dotenv = require('dotenv-webpack')
+
 // EL UI
 const AutoImport = require('unplugin-auto-import/webpack')
 const Components = require('unplugin-vue-components/webpack')
@@ -16,7 +18,7 @@ module.exports = {
       '@': path.resolve(__dirname, './src'),
       '@views': path.resolve(__dirname, './src/views'),
       '@com': path.resolve(__dirname, './com'),
-      '@service': path.resolve(__dirname, './service')
+      '@serv': path.resolve(__dirname, './service')
     }
   },
   module: {
@@ -61,6 +63,12 @@ module.exports = {
     ]
   },
   plugins: [
+    AutoImport({
+      resolvers: [ElementPlusResolver()]
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()]
+    }),
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './public/index.html')
@@ -70,11 +78,14 @@ module.exports = {
       __VUE_OPTIONS_API__: 'true',
       __VUE_PROD_DEVTOOLS__: 'false'
     }),
-    AutoImport({
-      resolvers: [ElementPlusResolver()]
-    }),
-    Components({
-      resolvers: [ElementPlusResolver()]
+    new Dotenv({
+      path: (() => {
+        if (process.env.NODE_ENV === 'production') {
+          return path.resolve(__dirname, '.env.production')
+        } else {
+          return path.resolve(__dirname, '.env.development')
+        }
+      })()
     })
   ]
 }

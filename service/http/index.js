@@ -1,5 +1,5 @@
 import axios from 'axios'
-// import errorCode from '@service/http/errorCode'
+// import errorCode from '@serv/http/errorCode'
 
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
 // 创建axios实例

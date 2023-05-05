@@ -9,7 +9,13 @@ module.exports = merge(common, {
     hot: true,
     compress: true,
     port: 8848,
-    historyApiFallback: true
+    historyApiFallback: true,
+    // proxy: {
+    //   '/api': {
+    //     target: process.env.VUE_APP_BASE_URL, // 直接指向你请求的服务器地址
+    //     changeOrigin: true
+    //   }
+    // }
   },
   cache: {
     type: 'memory'

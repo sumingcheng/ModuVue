@@ -3,8 +3,8 @@ import App from './App.vue'
 import '@/assets/less/index.less'
 import '@/assets/css/reset.css'
 
-import { Router } from '@service/router'
-import Store from '@service/store'
+import { Router } from '@serv/router'
+import Store from '@serv/store'
 
 const isProd = process.env.NODE_ENV
 const app = createApp(App)
