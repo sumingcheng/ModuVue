@@ -15,6 +15,9 @@ module.exports = {
   cache: {
     type: 'memory'
   },
+  optimization: {
+    nodeEnv: false
+  },
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {

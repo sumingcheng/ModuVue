@@ -4,6 +4,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path')
+const { cacheGroupOptions } = require('./cacheGroups')
 
 module.exports = merge(common, {
   // devtool: 'source-map',
@@ -11,7 +12,7 @@ module.exports = merge(common, {
   output: {
     // publicPath: '/',
     path: path.resolve(__dirname, '../dist/resource'),
-    filename: '[name]_[fullhash:8].js'
+    filename: '[name]_[contenthash:8].js'
     // assetModuleFilename: 'css/[name][ext]'
   },
   plugins: [
@@ -41,7 +42,7 @@ module.exports = merge(common, {
     splitChunks: {
       name: 'vendors', // chunk名称,
       chunks: 'async', // 拆分标准，选择需要优化的 chunks,all,async和initial分别表示全部、按需加载和初始入口。
-      minSize: 30000, // 拆分前的chunk大小需大于30KB
+      minSize: 24000, // 拆分前的chunk大小需大于24KB
       maxSize: Infinity, // 拆分后的chunk大小不做限制
       minChunks: 3, // 被多少模块共享，将会被打包到新的chunk中
       maxAsyncRequests: 30, // 按需加载时的最大并发请求数
@@ -56,11 +57,7 @@ module.exports = merge(common, {
           filename: '[name].bundle.js', // 满足cache group的module会被打包到该文件中
           name: 'vendors'
         },
-        defaultVendors: {
-          test: /[\/]node_modules[\/]/,
-          priority: -20,
-          filename: '[name].bundle.js'
-        },
+        elementplus: cacheGroupOptions('element-plus', '/node_modules/element-plus/', 1),
         default: {
           priority: -30,
           reuseExistingChunk: true,
