@@ -1,39 +1,68 @@
 # ModuVue
 
-    该项目是一个基于 Vue3 + Webpack 5 的框架，纯框架，会不断的完善框架的内容和易用性
+    该项目是开箱即用的一个基于 Vue3 + Webpack5 的高度模块化项目。
 
-## 技术栈
+# 项目使用
 
-    以下是该项目使用的技术栈：
+## 安装
 
-- Vue.js：主要框架
-- Vue Router：前端路由管理
-- Vuex：状态管理
-- Ant Design Vue：UI组件库
-- Axios：网络请求
-- Day.js：日期处理
-- Lodash：工具类库
-- Webpack：打包工具
-- Babel：JavaScript编译器
-- Less：CSS预处理器
-- PostCSS：CSS后处理器
-- ESLint：代码检查
-- Prettier：代码格式化
+    npm i or yarn or pnpm i
 
-## 运行
+## 启动
 
-以下是该项目的开发环境部署：
+    npm run dev or yarn dev or pnpm run dev
 
-使用 `npm` 或者 `yarn` 来安装相关的包：
+## 构建
 
-请使用 Git Bash 运行项目
+    npm run build or yarn build or pnpm run build
 
-```bash
-npm install 或 yarn install
-```
+## 推荐使用
 
-在本地启动服务：
+1. nvm 管理 node 版本，推荐使用 v16 以上
+2. less 编译器，推荐使用 less v4 以上
+3. gulp 构建工具，推荐使用 gulp v4 以上
+4. npm 包管理工具，推荐使用最高版本
 
-```bash
-npm run dev 或 yarn dev
-```
+# 项目模块化
+
+## 模块化原理
+
+项目模块目录在`src/views`，该目录下每个文件夹就代表一个模块，目录名称就是该模块名的缩写。
+
+模块目录结构：
+
+- **service-config/**  - 模块基础服务配置
+    - **http**  - 请求配置
+    - **routes**  - 路由配置
+    - **store**  - 状态配置
+- **pages/**  - 模块页面目录
+    - **index.js**  - 页面启动组件
+
+## 创建新模块
+
+模块的标准模板`src/baseModules/base`，创建一个新模块只需要把这个模块拷贝一份，然后声明下即可：
+
+将拷贝的模块目录放到`src/views`，将文件夹名称改为新的**模块名称**，例如：`src/views/demo`
+
+## 模块使用
+
+- **http**  - 请求配置，你可以选择新建一个实例，或者使用示例中的 `AxiosInstances`，改写你的登录逻辑
+- **routes**  - 路由配置，在`routes.js`定义该模块的路由，编写后会自动注入到路由内
+- **store**  - 状态配置，在`store.js`定义该模块的状态，模块名就是`VueX`的`module`名，编写后会自动注入到`VueX`内
+
+# 贡献指南
+
+    如果你想为本项目做出贡献，请按照以下步骤进行：
+    
+    在GitHub上，Fork本项目到你的账户中；
+    
+    克隆本项目到本地进行开发修改；
+    
+    提交代码并创建一个Pull Request；
+    
+    等待作者审核并合并你的代码。
+
+# 许可证
+
+    本项目使用了Apache License Version 2.0许可证。
+    Copyright (c) [2023] [Sumingcheng]
