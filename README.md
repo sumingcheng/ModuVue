@@ -6,15 +6,21 @@
 
 ## 安装
 
-    npm i or yarn or pnpm i
+    npm i
+    yarn
+    pnpm i
 
 ## 启动
 
-    npm run dev or yarn dev or pnpm run dev
+    npm run dev
+    yarn dev
+    pnpm run dev
 
 ## 构建
 
-    npm run build or yarn build or pnpm run build
+    npm run build
+    yarn build
+    pnpm run build
 
 ## 推荐使用
 
