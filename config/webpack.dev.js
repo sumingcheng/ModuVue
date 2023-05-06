@@ -10,6 +10,7 @@ module.exports = merge(common, {
     compress: true,
     port: 8848,
     historyApiFallback: true,
+    open: true,
     // proxy: {
     //   '/api': {
     //     target: process.env.VUE_APP_BASE_URL, // 直接指向你请求的服务器地址
