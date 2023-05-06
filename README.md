@@ -1,20 +1,26 @@
 # ModuVue
 
-    该项目是开箱即用的一个基于 Vue3 + Webpack5 的高度模块化项目。
+    该项目是开箱即用的一个基于 Vue3 + Webpack5 的模块化项目框架。
 
 # 项目使用
 
 ## 安装
 
-    npm i or yarn or pnpm i
+    npm i
+    yarn
+    pnpm i
 
 ## 启动
 
-    npm run dev or yarn dev or pnpm run dev
+    npm run dev
+    yarn dev
+    pnpm run dev
 
 ## 构建
 
-    npm run build or yarn build or pnpm run build
+    npm run build
+    yarn build
+    pnpm run build
 
 ## 推荐使用
 
