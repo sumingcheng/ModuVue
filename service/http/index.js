@@ -12,19 +12,28 @@ const AxiosInstances = axios.create({
   timeout: 10000,
   withCredentials: false // default
 })
+const requestMap = new Map() // 用于保存正在进行的请求
 
 // 请求拦截器
-AxiosInstances.interceptors.request
-  .use
-  // (config) => {
-  //   // 对请求进行一些通用的处理
-  //   config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`
-  //   return config
-  // },
-  // (error) => {
-  //   return Promise.reject(error)
-  // }
-  ()
+AxiosInstances.interceptors.request.use(
+  (config) => {
+    // 检查请求队列中是否存在相同请求
+    const key = `${config.url}_${config.method}`
+    if (requestMap.has(key)) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(config)
+        }, 200)
+      })
+    }
+    // 添加当前请求到集合中
+    requestMap.set(key, true)
+    return config
+  },
+  (error) => {
+    return Promise.reject(error)
+  }
+)
 
 // 响应拦截器
 AxiosInstances.interceptors.response.use(
