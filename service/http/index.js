@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { ElMessage } from 'element-plus'
 
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
 // 创建axios实例
@@ -19,12 +20,14 @@ AxiosInstances.interceptors.request.use(
   (config) => {
     // 检查请求队列中是否存在相同请求
     const key = `${config.url}_${config.method}`
+    console.log(key)
     if (requestMap.has(key)) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve(config)
-        }, 200)
+      ElMessage({
+        message: '请不要重复请求',
+        type: 'success'
       })
+      setTimeout(() => {
+      }, 1000)
     }
     // 添加当前请求到集合中
     requestMap.set(key, true)
