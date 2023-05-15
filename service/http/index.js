@@ -38,12 +38,16 @@ AxiosInstances.interceptors.request.use(
 // 响应拦截器
 AxiosInstances.interceptors.response.use(
   (res) => {
+    const key = `${res.config.url}_${res.config.method}`
+    requestMap.delete(key)
     // 响应数据进行处理
     return res.data
   },
   (error) => {
     // 响应错误进行处理
-    console.error(error)
+    const key = `${error.config.url}_${error.config.method}`
+    requestMap.delete(key)
+    console.log(error)
     return Promise.reject(error)
   }
 )
