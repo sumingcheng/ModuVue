@@ -4,8 +4,8 @@
   "description": "ModuVue",
   "main": "index.js",
   "scripts": {
-    "dev": "sh bin/dev.sh",
-    "prod": "sh bin/prod.sh",
+    "dev": "cross-env NODE_ENV=production sh bin/dev.sh",
+    "prod": "cross-env NODE_ENV=development sh bin/prod.sh",
     "build": "sh bin/build.sh",
     "lint": "eslint --ext .js,.vue src",
     "analyzer": "webpack-bundle-analyzer analyzer/stats.json",
@@ -53,6 +53,7 @@
   },
   "dependencies": {
     "axios": "^1.3.5",
+    "cross-env": "^7.0.3",
     "crypto-js": "^4.1.1",
     "dayjs": "^1.11.7",
     "element-plus": "^2.3.4",
