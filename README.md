@@ -35,6 +35,8 @@
 5. Git Bash 命令行工具
 
 # 项目模块化
+![image](https://github.com/sumingcheng/ModuVue/assets/21992204/baa2a911-03a1-4798-a329-82f021a57b53)
+
 
 ## 模块化原理
 
