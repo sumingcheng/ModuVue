@@ -1,6 +1,7 @@
 # ModuVue
 
 该项目是开箱即用的一个基于 Vue3 + Webpack5 的模块化项目框架。
+该项目没有使用 TypeScript 
 
 ## 安装
 
