@@ -4,8 +4,8 @@
   "description": "ModuVue",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=production sh bin/dev.sh",
-    "prod": "cross-env NODE_ENV=development sh bin/prod.sh",
+    "dev": "cross-env NODE_ENV=development sh bin/dev.sh",
+    "prod": "cross-env NODE_ENV=production sh bin/prod.sh",
     "build": "sh bin/build.sh",
     "lint": "eslint --ext .js,.vue src",
     "analyzer": "webpack-bundle-analyzer analyzer/stats.json",

@@ -1,6 +1,5 @@
 <component name="ProjectCodeStyleConfiguration">
   <code_scheme name="Project" version="173">
-    <option name="ENABLE_SECOND_REFORMAT" value="true" />
     <HTMLCodeStyleSettings>
       <option name="HTML_UNIFORM_INDENT" value="true" />
       <option name="HTML_TEXT_WRAP" value="0" />

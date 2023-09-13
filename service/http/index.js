@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
 
-axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
 // 创建axios实例
 const AxiosInstances = axios.create({
   headers: {
@@ -26,8 +25,7 @@ AxiosInstances.interceptors.request.use(
         message: '请不要重复请求',
         type: 'success'
       })
-      setTimeout(() => {
-      }, 1000)
+      setTimeout(() => {}, 1000)
     }
     // 添加当前请求到集合中
     requestMap.set(key, true)
